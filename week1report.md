@@ -31,8 +31,8 @@ Finally, try some commands.
 * cp /home/linux/ieng6/cs15lwi23/public/hello.txt ~/
 * cat /home/linux/ieng6/cs15lwi23/public/hello.txt
 <br />
-I tried ls - lat, which looked like this.
- ![image](https://user-images.githubusercontent.com/122496000/211947483-665e44b8-15ff-4f0d-ae66-468bf23bf969.png)
+I tried ls - lat, which looked like this. <br />
+![image](https://user-images.githubusercontent.com/122496000/211947483-665e44b8-15ff-4f0d-ae66-468bf23bf969.png)
 <br />
 
 This concludes the lab report.
