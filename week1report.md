@@ -18,17 +18,18 @@ Open up a terminal in VSCode with Ctrl or Command + `, or use the Terminal → N
 In order to login, you should use the command > ssh cs15lwi23zz@ieng6.ucsd.edu <br /> 
 but with zz as your own login. The terminal will ask if you want continue connecting, and type in "yes". 
 You will be prompted to type in your password, and it will not show (For security purposes). Type it in blind and hope it works. <br />
-A succesful login will look like this: ![image](https://user-images.githubusercontent.com/122496000/211947313-988632ca-d213-401e-b470-997db24011e9.png)
+A succesful login will look like this: 
+![image](https://user-images.githubusercontent.com/122496000/211947313-988632ca-d213-401e-b470-997db24011e9.png)
  <br />
 ## Step 4 <br />
 Finally, try some commands.
-*cd ~
-*cd
-*ls -lat
-*ls -a
-*ls <directory> where <directory> is /home/linux/ieng6/cs15lwi23/cs15lwi23abc, where the abc is one of the other group members’ username
-*cp /home/linux/ieng6/cs15lwi23/public/hello.txt ~/
-*cat /home/linux/ieng6/cs15lwi23/public/hello.txt
+* cd ~
+* cd
+* ls -lat
+* ls -a
+* ls <directory> where <directory> is /home/linux/ieng6/cs15lwi23/cs15lwi23abc, where the abc is one of the other group members’ username
+* cp /home/linux/ieng6/cs15lwi23/public/hello.txt ~/
+* cat /home/linux/ieng6/cs15lwi23/public/hello.txt
 <br />
 I tried ls - lat, which looked like this. ![image](https://user-images.githubusercontent.com/122496000/211947483-665e44b8-15ff-4f0d-ae66-468bf23bf969.png)
 <br />
