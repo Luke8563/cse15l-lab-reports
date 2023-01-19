@@ -11,17 +11,17 @@ class Handler implements URLHandler {
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            arrayString();
-            return list;
+            return String.format("Luke's Empty List:");
         } else if (url.getPath().equals("/search")) {
             String[] parameters = url.getQuery().split("=");
             if(parameters[0].equals("s")){
+                ArrayList<String> matches = new ArrayList<String>();
                 for(int i= 0; i < words.size(); i++){
-
-                if(parameters[1].equals(words.get(i))){
-                    return String.format(parameters[1] + " is in the list!");
+                    if(words.get(i).contains(parameters[1])){
+                    matches.add(parameters[1]);
                 }
             }
+            return String.format("%d was found in the list!", parameters[1]);
             }
             return String.format("Word not found!");
         } else {
@@ -29,9 +29,7 @@ class Handler implements URLHandler {
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
                 if(parameters[0].equals("s")){
-                    for(int i = 1; i < parameters.length; i++){
-                    words.add(parameters[i]);
-                }
+                    words.add(parameters[1]);
                 }
                 
                 return String.format("Words have been added!");
