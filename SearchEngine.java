@@ -6,46 +6,29 @@ class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
     // various requests.
     int num = 0;
-    ArrayList <String> words = new ArrayList<String>();
-    String list = "";
+    ArrayList<String> list = new ArrayList<String>();
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return String.format("Luke's Empty List:");
-        } else if (url.getPath().equals("/search")) {
-            String[] parameters = url.getQuery().split("=");
-            if(parameters[0].equals("s")){
-                ArrayList<String> matches = new ArrayList<String>();
-                for(int i= 0; i < words.size(); i++){
-                    if(words.get(i).contains(parameters[1])){
-                    matches.add(parameters[1]);
-                }
-            }
-            return String.format("%d was found in the list!", parameters[1]);
-            }
-            return String.format("Word not found!");
+            return String.format("Luke's List:");
+
+        } else if (url.getPath().equals("/increment")) {
+            num += 1;
+            return String.format("Number incremented!");
+
         } else {
             System.out.println("Path: " + url.getPath());
-            if (url.getPath().contains("/add")) {
+            if (url.getPath().contains("/add-message")) {
                 String[] parameters = url.getQuery().split("=");
-                if(parameters[0].equals("s")){
-                    words.add(parameters[1]);
+                if (parameters[0].equals("s")) {
+                    num += Integer.parseInt(parameters[1]);
+                    return String.format("Number increased by %s! It's now %d", parameters[1], num);
                 }
-                
-                return String.format("Words have been added!");
             }
             return "404 Not Found!";
         }
     }
-
-    public void arrayString(){
-        for(int i = 0; i < words.size(); i++){
-            list = list + words.get(i);
-        }
-    }
 }
-
-
 
 class SearchEngine {
     public static void main(String[] args) throws IOException {
