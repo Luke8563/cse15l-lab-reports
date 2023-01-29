@@ -15,7 +15,7 @@ Next, use [these instructions](https://stackoverflow.com/questions/42606837/how-
 
 ## Step 3 <br />
 Open up a terminal in VSCode with Ctrl or Command + `, or use the Terminal → New Terminal menu option. 
-In order to login, you should use the command > ssh cs15lwi23zz@ieng6.ucsd.edu <br /> 
+In order to login, you should use the command > 'ssh cs15lwi23zz@ieng6.ucsd.edu' <br /> 
 but with zz as your own login. The terminal will ask if you want continue connecting, and type in "yes". 
 You will be prompted to type in your password, and it will not show (For security purposes). Type it in blind and hope it works. <br />
 A succesful login will look like this: <br />
@@ -23,15 +23,14 @@ A succesful login will look like this: <br />
  <br />
 ## Step 4 <br />
 Finally, try some commands.
-* cd ~
-* cd
-* ls -lat
-* ls -a
-* ls <directory> where <directory> is /home/linux/ieng6/cs15lwi23/cs15lwi23abc, where the abc is one of the other group members’ username
-* cp /home/linux/ieng6/cs15lwi23/public/hello.txt ~/
-* cat /home/linux/ieng6/cs15lwi23/public/hello.txt
+* 'cd ~' : this command changes the directory you are in
+* 'ls' allows you to navigate into a directory's files 
+* 'ls <directory>' where <directory> is /home/linux/ieng6/cs15lwi23/cs15lwi23abc, where the abc is one of the other group members’ username, allows you to 
+ navigate into their files
+* 'cp /home/linux/ieng6/cs15lwi23/public/hello.txt ~/' : copies the file from the directory to your computer
+* 'cat /home/linux/ieng6/cs15lwi23/public/hello.txt' : displays the contents of the file
 <br />
-I tried ls - lat, which looked like this. <br />
+I tried 'ls - lat', which looked like this. <br />
 ![image](https://user-images.githubusercontent.com/122496000/211948723-4d44b168-c404-46c4-b122-c11b64c27307.png)
 
 
