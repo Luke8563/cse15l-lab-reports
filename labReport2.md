@@ -33,7 +33,6 @@ int num = 0;
         }
     }
 }
-
 ```
 
 # Part 2  
@@ -49,14 +48,13 @@ An input that caused an error was <br/>
  
   An input that didn't induce a failure was <br />
   
-  ``` 
+``` 
   public void testReverseInPlace() {
     int[] input1 = { 3 };
     ArrayExamples.reverseInPlace(input1);
     assertArrayEquals(new int[]{ 3 }, input1);
 	} 
-	
-	```
+```
 	
 
   The symptoms: <br />
