@@ -7,14 +7,7 @@ These are 2 instances of the successful search query:
 <img width="581" alt="Screen Shot 2023-01-29 at 11 33 57 PM" src="https://user-images.githubusercontent.com/122496000/215415885-37ad2f48-f6fb-40ce-ac17-0b22f4573b0c.png">
 
 And here is the code: 
-`import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
-
-class Handler implements URLHandler {
-    // The one bit of state on the server: a number that will be manipulated by
-    // various requests.
-    int num = 0;
+`   int num = 0;
     ArrayList<String> arr = new ArrayList<String>();
     
 
@@ -41,24 +34,12 @@ class Handler implements URLHandler {
         }
     }
 }
-
-class StringServer {
-    public static void main(String[] args) throws IOException {
-        if(args.length == 0){
-            System.out.println("Missing port number! Try any number between 1024 to 49151");
-            return;
-        }
-
-        int port = Integer.parseInt(args[0]);
-
-        Server.start(port, new Handler());
-    }
-}
 `
 
 #Part 2#  
 An input that caused an error was
-`@Test
+`
+@Test
   public void testReverseInPlace2() {
     int[] input1 = {1,2,3,4,5};
     ArrayExamples.reverseInPlace(input1);
