@@ -1,40 +1,103 @@
-Write a web server called StringServer that supports the path and behavior described below. It should keep track of a single string that gets added to by incoming requests. The requests should look like this:
+#Part 1#  
+Using the code from the NumberServer, I was able to create StringServer. 
+These are 2 instances of the successful search query: 
 
-/add-message?s=<string>
-The effect of this request is to concatenate a new line (\n) and the string after = to the running string, and then respond with the entire string so far.
+<img width="954" alt="Screen Shot 2023-01-29 at 11 31 07 PM" src="https://user-images.githubusercontent.com/122496000/215415838-513803f7-fedd-48da-b90d-c527682953c5.png">
 
-So, for example, after
+<img width="581" alt="Screen Shot 2023-01-29 at 11 33 57 PM" src="https://user-images.githubusercontent.com/122496000/215415885-37ad2f48-f6fb-40ce-ac17-0b22f4573b0c.png">
 
-/add-message?s=Hello
-The page should show
+And here is the code: 
+`import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
 
-Hello
-and after
+class Handler implements URLHandler {
+    // The one bit of state on the server: a number that will be manipulated by
+    // various requests.
+    int num = 0;
+    ArrayList<String> arr = new ArrayList<String>();
+    
 
-/add-message?s=How are you
-the page should show
+    public String handleRequest(URI url) {
+        if (url.getPath().equals("/")) {
+            return String.format("Luke's Number: %d", num);
+        } else if (url.getPath().equals("/increment")) {
+            num += 1;
+            return String.format("Number incremented!");
+        } else {
+            System.out.println("Path: " + url.getPath());
+            if (url.getPath().contains("/add-message")) {
+                String[] parameters = url.getQuery().split("=");
+                if (parameters[0].equals("s")) {
+                    arr.add(parameters[1]);
+                    String list = "";
+                    for(int i = 0; i < arr.size(); i++){
+                        list += arr.get(i) + "\n";
+                    }
+                    return list;
+                }
+            }
+            return "404 Not Found!";
+        }
+    }
+}
 
-Hello
-How are you
-Show the code for your StringServer, and two screenshots of using /add-message.
+class StringServer {
+    public static void main(String[] args) throws IOException {
+        if(args.length == 0){
+            System.out.println("Missing port number! Try any number between 1024 to 49151");
+            return;
+        }
 
-For each of the two screenshots, describe:
+        int port = Integer.parseInt(args[0]);
 
-Which methods in your code are called?
-What are the relevant arguments to those methods, and the values of any relevant fields of the class?
-How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
-By values, we mean specific Strings, ints, URIs, and so on. "abc" is a value, 456 is a value, new URI("http://...") is a value, and so on.)
+        Server.start(port, new Handler());
+    }
+}
+`
 
-Part 2
-Choose one of the bugs from lab 3.
+#Part 2#  
+An input that caused an error was
+`@Test
+  public void testReverseInPlace2() {
+    int[] input1 = {1,2,3,4,5};
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[]{5,4,3,2,1}, input1);
+  }
+` <br /> 
+  
+  An input that didn't induce a failure was
+  `public void testReverseInPlace() {
+    int[] input1 = { 3 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[]{ 3 }, input1);
+	}`  <br/>
+  The symptoms: 
+  <img width="453" alt="Screen Shot 2023-01-29 at 11 50 50 PM" src="https://user-images.githubusercontent.com/122496000/215418453-4a5c1914-5327-45cf-9e11-36131334b76b.png">  
+  
+#The Code Before#  
+`static void reverseInPlace(int[] arr) {
+    
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+      arr[arr.length - i - 1] = holder;
+    }
+  }`
+  #The Code After#  
+  `static void reverseInPlace(int[] arr) {
+   
+    for(int i = 0; i < arr.length/2; i += 1) {
+      int holder = arr[arr.length - i - 1];
+      arr[arr.length - i - 1] = arr[i];
+      arr[i] = holder;
+    }
+  }`  
+For Reversed in place, we need a holder so that the value isn't removed/lost. 
+Only half the values need to be switched, and the middle value stays the same, so we
+only need half the array length for the loop. <br />
 
-Provide:
+#Part 3#
+I learned how to start my own webserver on my local device. I also learned how to interact with the url and create code to return inputs.  
+Furthermore, with lab 3, I really got the hang of using Junit to test my code. 
 
-A failure-inducing input for the buggy program, as a JUnit test and any associated code (write it as a code block in Markdown)
-An input that doesn’t induce a failure, as a JUnit test and any associated code (write it as a code block in Markdown)
-The symptom, as the output of running the tests (provide it as a screenshot of running JUnit with at least the two inputs above)
-The bug, as the before-and-after code change required to fix it (as two code blocks in Markdown)
-Briefly describe why the fix addresses the issue.
 
-Part 3
-In a couple of sentences, describe something you learned from lab in week 2 or 3 that you didn’t know before.
