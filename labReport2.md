@@ -38,6 +38,7 @@ And here is the code:
 
 #Part 2#  
 An input that caused an error was
+
 `
 @Test
   public void testReverseInPlace2() {
@@ -48,36 +49,43 @@ An input that caused an error was
 ` <br /> 
   
   An input that didn't induce a failure was
-  `public void testReverseInPlace() {
+  ` public void testReverseInPlace() {
     int[] input1 = { 3 };
     ArrayExamples.reverseInPlace(input1);
     assertArrayEquals(new int[]{ 3 }, input1);
 	}`  <br/>
-  The symptoms: 
-  <img width="453" alt="Screen Shot 2023-01-29 at 11 50 50 PM" src="https://user-images.githubusercontent.com/122496000/215418453-4a5c1914-5327-45cf-9e11-36131334b76b.png">  
+	
+
+  The symptoms: <br />
+  <img width="453" alt="Screen Shot 2023-01-29 at 11 50 50 PM" src="https://user-images.githubusercontent.com/122496000/215418453-4a5c1914-5327-45cf-9e11-36131334b76b.png">  <br />
   
 #The Code Before#  
-`static void reverseInPlace(int[] arr) {
+` 
+static void reverseInPlace(int[] arr) {
     
     for(int i = 0; i < arr.length; i += 1) {
       arr[i] = arr[arr.length - i - 1];
       arr[arr.length - i - 1] = holder;
     }
-  }`
+  }
+  `
   #The Code After#  
-  `static void reverseInPlace(int[] arr) {
+  ` 
+  static void reverseInPlace(int[] arr) {
    
     for(int i = 0; i < arr.length/2; i += 1) {
       int holder = arr[arr.length - i - 1];
       arr[arr.length - i - 1] = arr[i];
       arr[i] = holder;
     }
-  }`  
+  } `  
+  <br /> 
+  
 For Reversed in place, we need a holder so that the value isn't removed/lost. 
 Only half the values need to be switched, and the middle value stays the same, so we
 only need half the array length for the loop. <br />
 
-#Part 3#
+#Part 3#  
 I learned how to start my own webserver on my local device. I also learned how to interact with the url and create code to return inputs.  
 Furthermore, with lab 3, I really got the hang of using Junit to test my code. 
 
