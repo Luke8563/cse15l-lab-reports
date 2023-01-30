@@ -1,4 +1,4 @@
-#Part 1#  
+# Part 1  
 Using the code from the NumberServer, I was able to create StringServer. 
 These are 2 instances of the successful search query: 
 
@@ -36,10 +36,10 @@ And here is the code:
 }
 `
 
-#Part 2#  
+# Part 2  
 An input that caused an error was
 
-`
+` 
 @Test
   public void testReverseInPlace2() {
     int[] input1 = {1,2,3,4,5};
@@ -59,7 +59,7 @@ An input that caused an error was
   The symptoms: <br />
   <img width="453" alt="Screen Shot 2023-01-29 at 11 50 50 PM" src="https://user-images.githubusercontent.com/122496000/215418453-4a5c1914-5327-45cf-9e11-36131334b76b.png">  <br />
   
-#The Code Before#  
+# The Code Before  
 ` 
 static void reverseInPlace(int[] arr) {
     
@@ -69,7 +69,7 @@ static void reverseInPlace(int[] arr) {
     }
   }
   `
-  #The Code After#  
+  # The Code After  
   ` 
   static void reverseInPlace(int[] arr) {
    
