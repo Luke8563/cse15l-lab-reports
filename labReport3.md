@@ -2,7 +2,7 @@
 
 ## Different Commands using grep
 
-Commands were found here: https://phoenixnap.com/kb/grep-command-linux-unix-examples
+Commands were found here: [https://phoenixnap.com/kb/grep-command-linux-unix-examples](https://phoenixnap.com/kb/grep-command-linux-unix-examples)
 
 1. using grep to find a word
 
