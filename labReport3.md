@@ -1,52 +1,53 @@
 # Lab Report 3
 
-## Different Commands using grep
+## Different Commands using the `find ` command
 
-Commands were found here: [https://phoenixnap.com/kb/grep-command-linux-unix-examples](https://phoenixnap.com/kb/grep-command-linux-unix-examples)
+Commands were found here: 
+https://www.redhat.com/sysadmin/linux-find-command
 
-1. using grep to find a word
 
-`grep the ch1.txt`
+1. using `find . -name`
 
-<img width="683" alt="Screen Shot 2023-02-13 at 6 03 34 PM" src="https://user-images.githubusercontent.com/122496000/218619939-fe8c513f-7666-436b-a8e9-aaf661b01840.png">
+a. `find . -name ch1.txt`
 
-`grep processes ch2.txt`
+<img width="444" alt="Screen Shot 2023-02-25 at 4 39 52 PM" src="https://user-images.githubusercontent.com/122496000/221386288-83f8107c-30c5-4e4d-8349-7bbb12b6f374.png">
 
-<img width="540" alt="Screen Shot 2023-02-13 at 6 06 45 PM" src="https://user-images.githubusercontent.com/122496000/218620383-4ad591f5-a5c5-4b9a-8d70-586cc10450e1.png">
 
-grep finds and returns any lines in ch1 or ch2 that contain the word "the" and "processes". This is useful for finding specific keywords in files.
+b. `find . -name ch2.txt`
 
-2. Multiple Files:
-`grep processes *.txt`
+<img width="419" alt="Screen Shot 2023-02-25 at 4 40 22 PM" src="https://user-images.githubusercontent.com/122496000/221386292-0a1318fe-6b37-4868-a481-0280d5bd4999.png">
 
-<img width="666" alt="Screen Shot 2023-02-13 at 6 09 40 PM" src="https://user-images.githubusercontent.com/122496000/218620712-0916a43a-bb63-46c2-9e8b-a147748994e2.png">
+Here, the command is finding the files in the directories that containt he name we're searching for. This is important for finding the locations of files that we know are there but can't find. 
 
-`grep everywhere ch1.txt ch2.txt ch3.txt`
+2. Using `find . -type d`
 
-<img width="603" alt="Screen Shot 2023-02-13 at 6 08 23 PM" src="https://user-images.githubusercontent.com/122496000/218620546-d17dcff6-803f-4a31-8d48-4ad15c76b1c1.png">
+a. `find . -type d` in docsearch
+<img width="397" alt="Screen Shot 2023-02-25 at 5 06 10 PM" src="https://user-images.githubusercontent.com/122496000/221386894-e835dc68-864f-4b1b-b388-39fae1900c96.png">
 
-This does the same thing as grep, but is very useful for sorting through multiple files at once. 
 
-3. Using grep to find whole words only
+b. 'find . -type d` in non-fiction
+<img width="368" alt="Screen Shot 2023-02-25 at 5 06 44 PM" src="https://user-images.githubusercontent.com/122496000/221386899-611c2596-1157-42f9-b2bf-c8b1944bec32.png">
 
-`grep -w processes *.txt`
+The command -type d returns all the directories in the current file that you are in. This is useful for knowing directory locations. 
 
-<img width="618" alt="Screen Shot 2023-02-13 at 6 13 15 PM" src="https://user-images.githubusercontent.com/122496000/218621337-b47dd998-d3e1-4e87-bb8b-97bb195d806f.png">
+3. Finding file names 
 
-`grep -w textiles ch1.txt`
+a. `find . -type f -name "*.txt" `
+<img width="524" alt="Screen Shot 2023-02-25 at 5 37 56 PM" src="https://user-images.githubusercontent.com/122496000/221387709-d3048766-6166-4586-8c78-f3d4a4a7d91d.png">
 
-<img width="684" alt="Screen Shot 2023-02-13 at 6 17 11 PM" src="https://user-images.githubusercontent.com/122496000/218621748-f7010d6d-5c67-4634-a0bb-eb785efe187f.png">
 
-The -w command finds whole word matches. This is useful for telling whether or not the words you were searching for were actually in the file. 
+b. `find . -type f -name "Hand*" `
+<img width="497" alt="Screen Shot 2023-02-25 at 5 38 17 PM" src="https://user-images.githubusercontent.com/122496000/221387711-b72b3a5b-c408-4d62-b7b0-7c92d68d5510.png">
 
-4. Inverse grep search
 
-`grep -v the *`
+The command `-type f` for `find` returns files, and `-name` along with the search returns files with the search words in their name. This is useful for finding checking if certain files exist within a directory. 
 
-<img width="676" alt="Screen Shot 2023-02-13 at 6 20 17 PM" src="https://user-images.githubusercontent.com/122496000/218622159-d5d784d3-95c5-4a9b-8366-64b3bcceed0b.png">
+4. Finding files containing certain text
 
-`grep -v processes *`
+a. `find . -type f -exec grep -l "Bahamas" {} \;  `
+<img width="524" alt="Screen Shot 2023-02-25 at 5 37 56 PM" src="https://user-images.githubusercontent.com/122496000/221388078-5969487f-f5c2-4f25-9889-472cac2fa6b6.png">
 
-<img width="683" alt="Screen Shot 2023-02-13 at 6 21 03 PM" src="https://user-images.githubusercontent.com/122496000/218622256-143b1e70-33e1-4c62-a73f-5e3d451ac4f8.png">
+b. `find . -type f -exec grep -l "Malaysia" {} \; `
+<img width="497" alt="Screen Shot 2023-02-25 at 5 38 17 PM" src="https://user-images.githubusercontent.com/122496000/221388081-ec45b657-ee62-4fac-8062-d0b76fd03fbf.png">
 
--v is the inverse search, which finds files that don't have the word you are searching for. This is useful when you don't want a word to pop up in a search. 
+Now that we know that `-type f` searches the files, we can use `-exec grep -l` to search through files with a certain text. `-l` returns only the file name. 
