@@ -2,11 +2,10 @@
 
 ## Different Commands using the `find ` command
 
-Commands were found here: 
+Commands were found here:   
 [https://www.redhat.com/sysadmin/linux-find-command](https://www.redhat.com/sysadmin/linux-find-command)  
 
 [https://geekflare.com/linux-find-commands/](https://geekflare.com/linux-find-commands/)
-
 
 Command 1:  using `find . -name`
 
