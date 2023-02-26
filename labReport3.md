@@ -7,7 +7,7 @@ Commands were found here:
 
 [https://geekflare.com/linux-find-commands/](https://geekflare.com/linux-find-commands/)
 
-Command 1:  using `find . -name`
+### Command 1:  using `find . -name`
 
 a. `find . -name ch1.txt`
 
@@ -20,7 +20,7 @@ b. `find . -name ch2.txt`
 
 Here, the command is finding the files in the directories that contain the name we're searching for. This is important for finding the locations of files that we know are there but can't find. 
 
-Command 2:  Using `find . -type d`
+### Command 2:  Using `find . -type d`
 
 a. `find . -type d` in docsearch
 
@@ -33,7 +33,7 @@ b. 'find . -type d` in non-fiction
 
 The command -type d returns all the directories in the current file that you are in. This is useful for knowing directory locations. 
 
-Command 3: Finding file names 
+### Command 3: Finding file names 
 
 a. `find . -type f -name "*.txt" `
 
@@ -46,7 +46,7 @@ b. `find . -type f -name "Hand*" `
 
 The command `-type f` for `find` returns files, and `-name` along with the search returns files with the search words in their name. This is useful for finding checking if certain files exist within a directory. 
 
-Command 4:  Finding files containing certain text
+### Command 4:  Finding files containing certain text
 
 a. `find . -type f -exec grep -l "Bahamas" {} \;  `
 
