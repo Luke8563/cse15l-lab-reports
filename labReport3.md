@@ -57,4 +57,4 @@ b. `find . -type f -exec grep -l "Malaysia" {} \; `
 
 <img width="497" alt="Screen Shot 2023-02-25 at 5 38 17 PM" src="https://user-images.githubusercontent.com/122496000/221388081-ec45b657-ee62-4fac-8062-d0b76fd03fbf.png">
 
-Now that we know that `-type f` searches the files, we can use `-exec grep -l` to search through files with a certain text. `-l` returns only the file name. 
+Now that we know that `-type f` searches the files, we can use `-exec grep -l` to search through files with a certain text. `-l` returns only the file name. This is useful for finding content within files without having to individually search.
