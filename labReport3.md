@@ -19,7 +19,7 @@ b. `find . -name ch2.txt`
 
 <img width="419" alt="Screen Shot 2023-02-25 at 4 40 22 PM" src="https://user-images.githubusercontent.com/122496000/221386292-0a1318fe-6b37-4868-a481-0280d5bd4999.png">
 
-Here, the command is finding the files in the directories that containt he name we're searching for. This is important for finding the locations of files that we know are there but can't find. 
+Here, the command is finding the files in the directories that contain the name we're searching for. This is important for finding the locations of files that we know are there but can't find. 
 
 2. Using `find . -type d`
 
@@ -40,7 +40,6 @@ a. `find . -type f -name "*.txt" `
 
 b. `find . -type f -name "Hand*" `
 <img width="497" alt="Screen Shot 2023-02-25 at 5 38 17 PM" src="https://user-images.githubusercontent.com/122496000/221387711-b72b3a5b-c408-4d62-b7b0-7c92d68d5510.png">
-
 
 The command `-type f` for `find` returns files, and `-name` along with the search returns files with the search words in their name. This is useful for finding checking if certain files exist within a directory. 
 
